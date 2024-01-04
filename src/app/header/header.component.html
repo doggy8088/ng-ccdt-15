@@ -14,7 +14,10 @@
     <th>name</th>
     <th>email</th>
   </tr>
-  <tr *ngFor="let user of fakeUsers; let i=index">
+  <tr *ngFor="let user of fakeUsers; let i=index"
+      class="highlight1"
+      [class.highlight2]="i % 2 == 0"
+      [ngClass]="{ highlight3: i%2==0 }">
     <td>{{i}}</td>
     <td>{{user.id}}</td>
     <td>{{user.name}}</td>
