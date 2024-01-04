@@ -27,7 +27,15 @@
           ID=1
         </p>
         <p *ngSwitchDefault>
-          {{i}}
+          {{ i }}
+          /
+          {{ 899 | currency:'TWD':'symbol':'1.0-0' }}
+          /
+          {{ 0.38 | percent }}
+          /
+          {{ now | date:'yyyy-MM-dd' }}
+          /
+          {{ now | twdate }}
         </p>
       </span>
 

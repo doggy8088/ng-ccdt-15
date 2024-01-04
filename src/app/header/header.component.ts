@@ -10,6 +10,8 @@ export class HeaderComponent implements OnInit {
 
   @Output() update = new EventEmitter<string>();
 
+  now = new Date();
+
   prefix = '';
 
   fontSize = 12;
