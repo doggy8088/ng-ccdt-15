@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit {
 
   isUpdatePrefix = false;
 
+  fakeUsers: User[] = generateFakeUsers();
+
   ngOnInit(): void {
     this.prefix = this.message;
   }
@@ -32,4 +34,29 @@ export class HeaderComponent implements OnInit {
   }
 
 
+}
+
+
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+
+function generateFakeUsers(): User[] {
+  const users: User[] = [];
+
+  for (let i = 1; i <= 10; i++) {
+    const user: User = {
+      id: i,
+      name: `User ${i}`,
+      email: `user${i}@example.com`
+    };
+
+    users.push(user);
+  }
+
+  return users;
 }
