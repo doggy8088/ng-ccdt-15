@@ -5,3 +5,10 @@ p.highlight {
 tr.highlight2 {
   background-color: #bbbbbb;
 }
+
+/* 建立一個 CSS 類別，我要在表格的奇數列顯示灰底，偶數列不變，請問要怎麼寫？ */
+/*
+tr:nth-child(odd) {
+  background-color: #bbbbbb;
+}
+*/
