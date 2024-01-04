@@ -18,7 +18,20 @@
       class="highlight1"
       [class.highlight2]="i % 2 == 0"
       [ngClass]="{ highlight3: i%2==0 }">
-    <td>{{i}}</td>
+    <td>
+      <span [ngSwitch]="i">
+        <p *ngSwitchCase="0">
+        Zero
+        </p>
+        <p *ngSwitchCase="1">
+          ID=1
+        </p>
+        <p *ngSwitchDefault>
+          {{i}}
+        </p>
+      </span>
+
+    </td>
     <td>{{user.id}}</td>
     <td>{{user.name}}</td>
     <td>{{user.email}}</td>
