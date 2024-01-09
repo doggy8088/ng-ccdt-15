@@ -13,7 +13,11 @@ export class TablesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.id = this.route.snapshot.queryParamMap.get('id');
+    // this.id = this.route.snapshot.queryParamMap.get('id');
+
+    this.route.queryParamMap.subscribe(params => {
+      this.id = params.get('id');
+    });
 
     const datatablesScript = document.createElement('script');
     datatablesScript.src = 'assets/js/demo/datatables-demo.js';
