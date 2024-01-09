@@ -15,7 +15,11 @@ const routes: Routes = [
         component: DashboardComponent,
         data: { pageTitle: 'Dashboard' },
       },
-      { path: 'tables/:name', component: TablesComponent },
+      {
+        path: 'tables',
+        loadChildren: () =>
+          import('./pages/tables/tables.module').then((m) => m.TablesModule),
+      },
     ],
   },
 ];
