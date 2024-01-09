@@ -11,6 +11,11 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       {
+        path: 'page1',
+        loadChildren: () =>
+          import('./pages/page1/page1.module').then((m) => m.Page1Module),
+      },
+      {
         path: 'dashboard',
         component: DashboardComponent,
         data: { pageTitle: 'Dashboard' },
