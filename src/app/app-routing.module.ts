@@ -10,16 +10,22 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
-      { path: 'dashboard', component: DashboardComponent },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        data: { pageTitle: 'Dashboard' },
+      },
       { path: 'tables/:name', component: TablesComponent },
-    ]
+    ],
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    useHash: true
-  })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      useHash: true,
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
