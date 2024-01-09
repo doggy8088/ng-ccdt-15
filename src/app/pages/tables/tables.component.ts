@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TablesComponent implements OnInit {
 
   id: string | null = null;
+  name: string | null = null;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -17,6 +18,12 @@ export class TablesComponent implements OnInit {
 
     this.route.queryParamMap.subscribe(params => {
       this.id = params.get('id');
+    });
+
+    // this.name = this.route.snapshot.paramMap.get('name');
+
+    this.route.paramMap.subscribe(params => {
+      this.name = params.get('name');
     });
 
     const datatablesScript = document.createElement('script');
