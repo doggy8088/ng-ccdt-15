@@ -11,9 +11,13 @@ export class DashboardComponent implements OnInit {
   route = inject(ActivatedRoute);
   data = inject(DataService);
 
+  news$: any;
+
   ngOnInit() {
 
     this.data.firstClick();
+
+    this.news$ = this.data.loadNews();
 
     const chartAreaScript = document.createElement('script');
     chartAreaScript.src = 'assets/js/demo/chart-area-demo.js';

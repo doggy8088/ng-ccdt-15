@@ -1,5 +1,6 @@
 import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,10 +19,11 @@ export const API_URL = new InjectionToken<string>('apiUrl');
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    { provide: API_URL, useValue: 'http://localhost:3000'}
+    { provide: API_URL, useValue: 'http://localhost:4200'}
   ],
   bootstrap: [AppComponent]
 })

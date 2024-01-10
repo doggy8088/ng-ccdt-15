@@ -1,0 +1,76 @@
+{
+  "news": [
+    {
+      "title": "Breaking News 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "category": "Politics",
+      "author": "John Doe",
+      "date": "2022-01-01"
+    },
+    {
+      "title": "Breaking News 2",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "Technology",
+      "author": "Jane Smith",
+      "date": "2022-01-02"
+    },
+    {
+      "title": "Breaking News 3",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "category": "Sports",
+      "author": "Mike Johnson",
+      "date": "2022-01-03"
+    },
+    {
+      "title": "Breaking News 4",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "category": "Entertainment",
+      "author": "Emily Brown",
+      "date": "2022-01-04"
+    },
+    {
+      "title": "Breaking News 5",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": "Business",
+      "author": "David Wilson",
+      "date": "2022-01-05"
+    },
+    {
+      "title": "Breaking News 6",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "category": "Politics",
+      "author": "John Doe",
+      "date": "2022-01-06"
+    },
+    {
+      "title": "Breaking News 7",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "Technology",
+      "author": "Jane Smith",
+      "date": "2022-01-07"
+    },
+    {
+      "title": "Breaking News 8",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "category": "Sports",
+      "author": "Mike Johnson",
+      "date": "2022-01-08"
+    },
+    {
+      "title": "Breaking News 9",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "category": "Entertainment",
+      "author": "Emily Brown",
+      "date": "2022-01-09"
+    },
+    {
+      "title": "Breaking News 10",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": "Business",
+      "author": "David Wilson",
+      "date": "2022-01-10"
+    }
+  ]
+}
+
+

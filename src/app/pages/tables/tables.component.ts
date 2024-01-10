@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   templateUrl: './tables.component.html',
@@ -7,12 +8,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TablesComponent implements OnInit {
 
+  data = inject(DataService);
+
   id: string | null = null;
   name: string | null = null;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+
+    this.data.firstClick();
 
     // this.id = this.route.snapshot.queryParamMap.get('id');
 
