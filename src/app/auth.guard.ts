@@ -16,7 +16,11 @@ export class AuthGuard implements CanActivate {
         return true;
       } else {
         console.log('您尚未登入，請先登入');
-        return this.router.createUrlTree(['/login']);
+        return this.router.createUrlTree(['/login'], {
+          queryParams: {
+            returnUrl: state.url
+          }
+        });
       }
   }
 

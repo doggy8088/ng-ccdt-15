@@ -4,7 +4,7 @@ import { TablesComponent } from './tables.component';
 import { AuthGuard } from 'src/app/auth.guard';
 
 const routes: Routes = [
-  { path: ':name', component: TablesComponent, canActivate: [AuthGuard] }
+  { path: ':name', component: TablesComponent }
 ];
 
 @NgModule({
