@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     // this.news$ = this.data.loadNews();
 
     this.newsSubscription = this.data.loadNews().subscribe((data) => {
-      this.news = data.news;
+      this.news = data;
     });
 
     const chartAreaScript = document.createElement('script');
