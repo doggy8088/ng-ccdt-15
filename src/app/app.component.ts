@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { appVersion } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-router';
+  title = 'ng-router ' + appVersion;
 
 }
