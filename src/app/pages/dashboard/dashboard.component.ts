@@ -1,25 +1,33 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, Subscription, of } from 'rxjs';
 import { DataService } from 'src/app/data.service';
-import { News } from 'src/app/models/news';
+import { News, NewsElement } from 'src/app/models/news';
 
 @Component({
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   router = inject(Router);
   route = inject(ActivatedRoute);
   data = inject(DataService);
 
-  news$!: Observable<News>;
+  // news$!: Observable<News>;
+
+  news: NewsElement[] = [];
+
+  newsSubscription!: Subscription;
 
   ngOnInit() {
 
     this.data.firstClick();
 
-    this.news$ = this.data.loadNews();
+    // this.news$ = this.data.loadNews();
+
+    this.newsSubscription = this.data.loadNews().subscribe((data) => {
+      this.news = data.news;
+    });
 
     const chartAreaScript = document.createElement('script');
     chartAreaScript.src = 'assets/js/demo/chart-area-demo.js';
@@ -32,6 +40,10 @@ export class DashboardComponent implements OnInit {
     this.route.data.subscribe((data) => {
       console.log(data['pageTitle']);
     });
+  }
+
+  ngOnDestroy(): void {
+    this.newsSubscription.unsubscribe();
   }
 
   gotoPage(pageName: string, name: string, id: number): void {

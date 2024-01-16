@@ -1,8 +1,8 @@
-<pre>{{ news$ | async | json }}</pre>
+<!-- <pre>{{ news$ | async | json }}</pre> -->
 
 <ol>
-  <li *ngFor="let news of (news$ | async)!.news">
-    {{ news.title }}
+  <li *ngFor="let item of news">
+    {{ item.title }}
   </li>
 </ol>
 
