@@ -32,6 +32,7 @@ export class Login2Component implements OnInit {
   doSubmit() {
     if (this.form.invalid) {
       console.log('表單驗證失敗');
+      // this.form.value;
     }
   }
 
