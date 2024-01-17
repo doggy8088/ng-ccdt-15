@@ -13,14 +13,24 @@
                   <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                 </div>
                 <pre>{{ form.value | json }}</pre>
-                <form class="user" [formGroup]="form" (ngSubmit)="doSubmit()">
+                <form class="user" [formGroup]="form" (ngSubmit)="doSubmit()" #f="ngForm">
                   <div class="form-group">
                     <input type="email"
                       formControlName="email"
                       class="form-control form-control-user" id="exampleInputEmail"
                            aria-describedby="emailHelp" placeholder="Enter Email Address..." autocomplete="username">
-<span style="color: red" *ngIf="form.controls.email.invalid && form.controls.email.errors!['required']">請輸入您的 Email 地址</span>
-<span style="color: red" *ngIf="form.controls.email.invalid && form.controls.email.errors!['email']">請輸入正確的 Email 格式</span>
+                      <span style="color: red"
+                        *ngIf="
+                          f.submitted
+                          && form.controls.email.invalid
+                          && form.controls.email.errors!['required']
+                        ">請輸入您的 Email 地址</span>
+                      <span style="color: red"
+                        *ngIf="
+                          f.submitted
+                          && form.controls.email.invalid
+                          && form.controls.email.errors!['email']
+                        ">請輸入正確的 Email 格式</span>
                   </div>
                   <div class="form-group">
                     <input type="password"
