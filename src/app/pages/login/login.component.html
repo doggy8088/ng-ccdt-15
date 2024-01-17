@@ -13,7 +13,7 @@
                   <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                 </div>
                 <pre>{{ data | json }}</pre>
-                <form class="user">
+                <form class="user" #f="ngForm" (ngSubmit)="doSubmit(f)">
                   <div class="form-group">
 <pre>mEmail.value = {{mEmail.value}}
 mEmail.valid = {{mEmail.valid}}
@@ -32,8 +32,8 @@ mEmail.errors = {{mEmail.errors | json}}</pre>
                       name="email"
                       class="form-control form-control-user" id="exampleInputEmail"
                            aria-describedby="emailHelp" placeholder="Enter Email Address..." autocomplete="username">
-                    <span style="color: red" *ngIf="mEmail.invalid && mEmail.errors!['required']">請輸入您的 Email 地址</span>
-                    <span style="color: red" *ngIf="mEmail.invalid && mEmail.errors!['email']">請輸入正確的 Email 格式</span>
+                    <span style="color: red" *ngIf="f.submitted && mEmail.invalid && mEmail.errors!['required']">請輸入您的 Email 地址</span>
+                    <span style="color: red" *ngIf="f.submitted && mEmail.invalid && mEmail.errors!['email']">請輸入正確的 Email 格式</span>
                   </div>
                   <div class="form-group">
                     <input type="password"
@@ -42,6 +42,7 @@ mEmail.errors = {{mEmail.errors | json}}</pre>
                         name="password"
                       class="form-control form-control-user" id="exampleInputPassword"
                            placeholder="Password" autocomplete="new-password">
+                    <span style="color: red" *ngIf="f.submitted && mPassword.invalid && mPassword.errors!['required']">請輸入您的密碼</span>
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
