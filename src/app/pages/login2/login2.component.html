@@ -19,12 +19,15 @@
                       formControlName="email"
                       class="form-control form-control-user" id="exampleInputEmail"
                            aria-describedby="emailHelp" placeholder="Enter Email Address..." autocomplete="username">
+<span style="color: red" *ngIf="form.controls.email.invalid && form.controls.email.errors!['required']">請輸入您的 Email 地址</span>
+<span style="color: red" *ngIf="form.controls.email.invalid && form.controls.email.errors!['email']">請輸入正確的 Email 格式</span>
                   </div>
                   <div class="form-group">
                     <input type="password"
                       formControlName="password"
                       class="form-control form-control-user" id="exampleInputPassword"
                            placeholder="Password" autocomplete="new-password">
+<span style="color: red" *ngIf="form.controls.password.invalid && form.controls.password.errors!['required']">請輸入您的密碼</span>
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
