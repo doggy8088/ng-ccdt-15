@@ -15,23 +15,38 @@
                 <pre>{{ data | json }}</pre>
                 <form class="user">
                   <div class="form-group">
+<pre>mEmail.value = {{mEmail.value}}
+mEmail.valid = {{mEmail.valid}}
+mEmail.invalid = {{mEmail.invalid}}
+mEmail.enabled = {{mEmail.enabled}}
+mEmail.disabled = {{mEmail.disabled}}
+mEmail.pristine = {{mEmail.pristine}}
+mEmail.dirty = {{mEmail.dirty}}
+mEmail.touched = {{mEmail.touched}}
+mEmail.untouched = {{mEmail.untouched}}
+mEmail.status = {{mEmail.status}}
+mEmail.errors = {{mEmail.errors | json}}</pre>
                     <input type="email"
-                      [(ngModel)]="data.email"
+                      [(ngModel)]="data.email" #mEmail="ngModel"
+                      required email
                       name="email"
                       class="form-control form-control-user" id="exampleInputEmail"
                            aria-describedby="emailHelp" placeholder="Enter Email Address..." autocomplete="username">
+                    <span style="color: red" *ngIf="mEmail.invalid && mEmail.errors!['required']">請輸入您的 Email 地址</span>
+                    <span style="color: red" *ngIf="mEmail.invalid && mEmail.errors!['email']">請輸入正確的 Email 格式</span>
                   </div>
                   <div class="form-group">
                     <input type="password"
-                      [(ngModel)]="data.password"
-                      name="password"
+                      [(ngModel)]="data.password" #mPassword="ngModel"
+                        required
+                        name="password"
                       class="form-control form-control-user" id="exampleInputPassword"
                            placeholder="Password" autocomplete="new-password">
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
                       <input type="checkbox"
-                        [(ngModel)]="data.remember"
+                        [(ngModel)]="data.remember" #mRemember="ngModel"
                         name="remember"
                         class="custom-control-input" id="customCheck">
                       <label class="custom-control-label" for="customCheck">Remember Me</label>
