@@ -9,6 +9,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { apiUrl } from 'src/environments/environment';
+import { FormsModule } from '@angular/forms';
 
 export const API_URL = new InjectionToken<string>('apiUrl');
 
@@ -22,7 +23,8 @@ export const API_URL = new InjectionToken<string>('apiUrl');
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     { provide: API_URL, useValue: apiUrl},
