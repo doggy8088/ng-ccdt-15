@@ -1,5 +1,26 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { isNationalIdentificationNumberValid } from "taiwan-id-validator2";
+
+function 身份證字號驗證器(control: AbstractControl) {
+  const value = control.value;
+  if (!value) {
+    return null;
+  }
+  const isValid = isNationalIdentificationNumberValid(value);
+  return isValid ? null : { 身份證字號驗證器: true };
+}
+
+function 本案專用的密碼複雜度檢查(control: AbstractControl) {
+  const value = control.value;
+  if (!value) {
+    return null;
+  }
+  const isValid = Validators.pattern(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,32}$/
+    )(control) == null;
+  return isValid ? null : { 本案專用的密碼複雜度檢查: true };
+}
 
 @Component({
   templateUrl: './login2.component.html',
@@ -27,14 +48,16 @@ export class Login2Component implements OnInit {
 
   form = this.fb.nonNullable.group({
     name: this.fb.nonNullable.control('', {
-      validators: [Validators.required],
+      validators: [Validators.required, 身份證字號驗證器],
       updateOn: 'blur'
     }),
     addresses: this.fb.nonNullable.array([
       this.fb.nonNullable.group({
         city: this.fb.nonNullable.control('台北'),
         address1: this.fb.nonNullable.control(''),
-        address2: this.fb.nonNullable.control(''),
+        address2: this.fb.nonNullable.control('', {
+          validators: [Validators.required, 本案專用的密碼複雜度檢查],
+        }),
       }),
       this.fb.nonNullable.group({
         city: this.fb.nonNullable.control('台中'),
