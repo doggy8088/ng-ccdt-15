@@ -38,6 +38,7 @@ export class Login2Component implements OnInit {
       this.fb.nonNullable.group({
         city: this.fb.nonNullable.control('台北'),
         address1: this.fb.nonNullable.control('', {
+          validators: [Validators.required],
           asyncValidators: [檢查Email是否重複(this.http)],
           updateOn: 'blur'
         }),
