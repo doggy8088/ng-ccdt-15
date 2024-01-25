@@ -24,22 +24,30 @@
                           && form.controls.name.errors!['required']
                         ">請輸入您的大名</span>
                   </div>
-                  <div class="form-group">
-                    居住地址
-                  </div>
-                  <div formGroupName="address" style="margin-left: 30px">
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user"
-                        formControlName="city" placeholder="請輸入您的居住城市">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user"
-                      formControlName="address1" placeholder="請輸入您的地址 1">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user"
-                      formControlName="address2" placeholder="請輸入您的地址 2">
-                    </div>
+
+                  <div formArrayName="addresses">
+                    <ng-container *ngFor="
+                      let addressGroup of form.controls.addresses.controls;
+                      let i=index
+                      ">
+                      <div class="form-group">
+                        居住地址 {{i+1}}
+                      </div>
+                      <div [formGroupName]="i" style="margin-left: 30px">
+                        <div class="form-group">
+                          <input type="text" class="form-control form-control-user"
+                            formControlName="city" placeholder="請輸入您的居住城市">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control form-control-user"
+                          formControlName="address1" placeholder="請輸入您的地址 1">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control form-control-user"
+                          formControlName="address2" placeholder="請輸入您的地址 2">
+                        </div>
+                      </div>
+                    </ng-container>
                   </div>
 
                   <button type="submit" class="btn btn-primary btn-user btn-block"> Login </button>

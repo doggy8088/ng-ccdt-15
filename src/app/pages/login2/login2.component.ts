@@ -22,11 +22,18 @@ export class Login2Component implements OnInit {
       validators: [Validators.required],
       updateOn: 'blur'
     }),
-    address: this.fb.group({
-      city: this.fb.control(''),
-      address1: this.fb.control(''),
-      address2: this.fb.control(''),
-    })
+    addresses: this.fb.array([
+      this.fb.group({
+        city: this.fb.control(''),
+        address1: this.fb.control(''),
+        address2: this.fb.control(''),
+      }),
+      this.fb.group({
+        city: this.fb.control(''),
+        address1: this.fb.control(''),
+        address2: this.fb.control(''),
+      }),
+    ])
   });
 
   ngOnInit(): void {
