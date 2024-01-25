@@ -16,7 +16,7 @@ export class Login2Component implements OnInit {
         address2: '某某大道 1 號'
       },
       {
-        city: '台中',
+        city: 'Taichung',
         address1: '中區',
         address2: '臺灣大道100號'
       }
@@ -25,21 +25,21 @@ export class Login2Component implements OnInit {
 
   fb = inject(FormBuilder);
 
-  form = this.fb.group({
-    name: this.fb.control('', {
+  form = this.fb.nonNullable.group({
+    name: this.fb.nonNullable.control('', {
       validators: [Validators.required],
       updateOn: 'blur'
     }),
-    addresses: this.fb.array([
-      this.fb.group({
-        city: this.fb.control(''),
-        address1: this.fb.control(''),
-        address2: this.fb.control(''),
+    addresses: this.fb.nonNullable.array([
+      this.fb.nonNullable.group({
+        city: this.fb.nonNullable.control('台北'),
+        address1: this.fb.nonNullable.control(''),
+        address2: this.fb.nonNullable.control(''),
       }),
-      this.fb.group({
-        city: this.fb.control(''),
-        address1: this.fb.control(''),
-        address2: this.fb.control(''),
+      this.fb.nonNullable.group({
+        city: this.fb.nonNullable.control('台中'),
+        address1: this.fb.nonNullable.control(''),
+        address2: this.fb.nonNullable.control(''),
       }),
     ])
   });
@@ -48,13 +48,14 @@ export class Login2Component implements OnInit {
     document.body.classList.add('bg-gradient-primary');
 
     // this.form.setValue(this.data);
-    this.form.patchValue(this.data);
+    // this.form.patchValue(this.data);
   }
 
   resetForm() {
-    this.form.reset(this.data);
-    this.form.disable();
-    this.form.enable();
+    this.form.reset();
+    // this.form.reset(this.data);
+    // this.form.disable();
+    // this.form.enable();
   }
 
   doSubmit() {
