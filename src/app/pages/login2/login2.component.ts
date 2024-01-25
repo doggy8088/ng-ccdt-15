@@ -7,22 +7,26 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class Login2Component implements OnInit {
   data: any = {
-    email: '',
-    password: '',
-    remember: true
+    name: '',
+    address: {
+      city: '',
+      address1: '',
+      address2: ''
+    }
   };
 
   fb = inject(FormBuilder);
 
   form = this.fb.group({
-    email: this.fb.control('', {
-      validators: [Validators.required, Validators.email],
+    name: this.fb.control('', {
+      validators: [Validators.required],
       updateOn: 'blur'
     }),
-    password: this.fb.control('', {
-      validators: [Validators.required, Validators.minLength(4)]
-    }),
-    remember: this.fb.control(true)
+    address: this.fb.group({
+      city: this.fb.control(''),
+      address1: this.fb.control(''),
+      address2: this.fb.control(''),
+    })
   });
 
   ngOnInit(): void {
