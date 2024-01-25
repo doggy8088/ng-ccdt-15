@@ -33,6 +33,10 @@ export function 檢查Email是否重複(http: HttpClient): AsyncValidatorFn {
       return of(null);
     }
 
-    return http.get<any>('https://webhook.site/6551f50e-4870-43a8-ac62-e9ebf219505d');
+    return http.get<any>('https://webhook.site/6551f50e-4870-43a8-ac62-e9ebf219505d', {
+      params: {
+        email: value
+      }
+    });
   };
 }
