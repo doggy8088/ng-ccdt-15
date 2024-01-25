@@ -46,6 +46,9 @@
                             formControlName="city" placeholder="請輸入您的居住城市">
                         </div>
                         <div class="form-group">
+                          <pre>addressGroup.controls.address1.valid = {{addressGroup.controls.address1.valid}}
+addressGroup.controls.address1.invalid = {{addressGroup.controls.address1.invalid}}
+{{addressGroup.controls.address1.errors | json}}</pre>
                           <input type="text" class="form-control form-control-user"
                           formControlName="address1" placeholder="請輸入您的地址 1">
                         </div>
