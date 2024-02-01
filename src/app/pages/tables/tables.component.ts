@@ -1,8 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/data.service';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './tables.component.html',
   styleUrls: ['./tables.component.css']
 })

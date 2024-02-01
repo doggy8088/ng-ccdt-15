@@ -37,7 +37,7 @@ const routes: Routes = [
         path: 'tables',
         canActivate: [AuthGuard],
         loadChildren: () =>
-          import('./app/pages/tables/tables.module').then((m) => m.TablesModule),
+          import('./app/pages/tables/tables.routes'),
       },
     ],
   },
