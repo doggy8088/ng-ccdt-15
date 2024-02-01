@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TablesRoutingModule } from './tables-routing.module';
 import { TablesComponent } from './tables.component';
-import { API_URL } from 'src/app/app.module';
+import { API_URL } from 'src/main';
 
 
 @NgModule({

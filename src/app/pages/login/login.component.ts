@@ -1,8 +1,11 @@
+import { CommonModule, JsonPipe } from '@angular/common';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { debounce, debounceTime } from 'rxjs';
 
 @Component({
+  standalone: true,
+  imports: [JsonPipe, FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

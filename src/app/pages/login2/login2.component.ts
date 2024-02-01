@@ -1,9 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { 身份證字號驗證器, 本案專用的密碼複雜度檢查, 檢查Email是否重複 } from '../../shared/validators';
 import { HttpClient } from '@angular/common/http';
+import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
+  standalone: true,
+  imports: [JsonPipe, ReactiveFormsModule, CommonModule],
   templateUrl: './login2.component.html',
   styleUrls: ['./login2.component.css']
 })

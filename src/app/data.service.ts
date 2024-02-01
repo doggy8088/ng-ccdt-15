@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@angular/core';
-import { API_URL } from './app.module';
 import { HttpClient } from '@angular/common/http';
 import { News } from './models/news';
 import { map } from 'rxjs';
+import { API_URL } from 'src/main';
 
 @Injectable({
   providedIn: 'root'
