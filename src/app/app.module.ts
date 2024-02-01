@@ -14,22 +14,4 @@ import { Login2Component } from './pages/login2/login2.component';
 
 export const API_URL = new InjectionToken<string>('apiUrl');
 
-@NgModule({
-    declarations: [AppComponent],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule, ReactiveFormsModule,
-        DashboardComponent,
-        LayoutComponent,
-        LoginComponent,
-        Login2Component
-    ],
-    providers: [
-        { provide: API_URL, useValue: apiUrl },
-        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
-    ],
-    bootstrap: [AppComponent]
-})
-export class AppModule { }
+
