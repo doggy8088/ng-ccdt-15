@@ -3,8 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/data.service';
 
 @Component({
-  templateUrl: './tables.component.html',
-  styleUrls: ['./tables.component.css']
+    templateUrl: './tables.component.html',
+    styleUrls: ['./tables.component.css'],
+    standalone: true
 })
 export class TablesComponent implements OnInit {
 

@@ -1,10 +1,13 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
+import { NgForm, NgModel, FormsModule } from '@angular/forms';
 import { debounce, debounceTime } from 'rxjs';
+import { NgIf, JsonPipe } from '@angular/common';
 
 @Component({
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    standalone: true,
+    imports: [FormsModule, NgIf, JsonPipe]
 })
 export class LoginComponent implements OnInit, OnDestroy, AfterViewInit {
   data: any = {

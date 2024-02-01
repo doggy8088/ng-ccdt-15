@@ -1,11 +1,14 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { 身份證字號驗證器, 本案專用的密碼複雜度檢查, 檢查Email是否重複 } from '../../shared/validators';
 import { HttpClient } from '@angular/common/http';
+import { NgIf, NgFor, JsonPipe } from '@angular/common';
 
 @Component({
-  templateUrl: './login2.component.html',
-  styleUrls: ['./login2.component.css']
+    templateUrl: './login2.component.html',
+    styleUrls: ['./login2.component.css'],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, NgIf, NgFor, JsonPipe]
 })
 export class Login2Component implements OnInit {
   data: any = {

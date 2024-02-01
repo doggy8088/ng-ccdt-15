@@ -1,12 +1,15 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Observable, Subscription, of } from 'rxjs';
 import { DataService } from 'src/app/data.service';
 import { News, NewsElement } from 'src/app/models/news';
+import { NgFor } from '@angular/common';
 
 @Component({
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.css'],
+    standalone: true,
+    imports: [NgFor, RouterLink],
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   router = inject(Router);
