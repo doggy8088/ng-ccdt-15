@@ -53,9 +53,9 @@ bootstrapApplication(AppComponent, {
     provideHttpClient(
       withInterceptorsFromDi()
     ),
-    importProvidersFrom(CommonModule),
-    importProvidersFrom(FormsModule),
-    importProvidersFrom(ReactiveFormsModule),
+    // importProvidersFrom(CommonModule),
+    // importProvidersFrom(FormsModule),
+    // importProvidersFrom(ReactiveFormsModule),
   ],
 })
   .catch((err) => console.error(err));

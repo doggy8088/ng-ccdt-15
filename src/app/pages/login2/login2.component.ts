@@ -6,7 +6,7 @@ import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [JsonPipe, ReactiveFormsModule, CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login2.component.html',
   styleUrls: ['./login2.component.css']
 })
