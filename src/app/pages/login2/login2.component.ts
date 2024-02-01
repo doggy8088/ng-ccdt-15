@@ -1,7 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { 身份證字號驗證器, 本案專用的密碼複雜度檢查, 檢查Email是否重複 } from '../../shared/validators';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
@@ -30,8 +29,6 @@ export class Login2Component implements OnInit {
 
   fb = inject(FormBuilder);
 
-  http = inject(HttpClient);
-
   form = this.fb.nonNullable.group({
     name: this.fb.nonNullable.control('', {
       validators: [Validators.required, 身份證字號驗證器],
@@ -42,7 +39,7 @@ export class Login2Component implements OnInit {
         city: this.fb.nonNullable.control('台北'),
         address1: this.fb.nonNullable.control('', {
           validators: [Validators.required],
-          asyncValidators: [檢查Email是否重複(this.http)],
+          asyncValidators: [檢查Email是否重複()],
           updateOn: 'blur'
         }),
         address2: this.fb.nonNullable.control('', {
