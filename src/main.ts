@@ -14,6 +14,7 @@ import { apiUrl } from './environments/environment';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { AuthInterceptor } from './app/auth.interceptor';
 import { CommonModule } from '@angular/common';
+import { auth2Interceptor } from './app/auth2.interceptor';
 
 export const API_URL = new InjectionToken<string>('apiUrl');
 
@@ -49,10 +50,19 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
     { provide: API_URL, useValue: apiUrl},
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+
+    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    // provideHttpClient(
+    //   withInterceptorsFromDi()
+    // ),
+
     provideHttpClient(
-      withInterceptorsFromDi()
+      withInterceptors([
+        auth2Interceptor
+      ])
     ),
+
+
     // importProvidersFrom(CommonModule),
     // importProvidersFrom(FormsModule),
     // importProvidersFrom(ReactiveFormsModule),
