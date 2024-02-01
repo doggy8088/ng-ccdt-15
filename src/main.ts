@@ -25,8 +25,8 @@ const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       {
         path: 'page1',
-        loadChildren: () =>
-          import('./app/pages/page1/page1.module').then((m) => m.Page1Module),
+        loadComponent: () =>
+          import('./app/pages/page1/page1.component'),
       },
       {
         path: 'dashboard',
